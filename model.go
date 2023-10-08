@@ -33,35 +33,35 @@ type Header struct {
 	} `xml:"client"`
 	Environment struct {
 		Offset struct {
-			X string `xml:"x"`
-			Y string `xml:"y"`
-			Z string `xml:"z"`
+			X float32 `xml:"x"`
+			Y float32 `xml:"y"`
+			Z float32 `xml:"z"`
 		} `xml:"offset"`
 		Rotation struct {
-			X string `xml:"x"`
-			Y string `xml:"y"`
-			Z string `xml:"z"`
+			X float32 `xml:"x"`
+			Y float32 `xml:"y"`
+			Z float32 `xml:"z"`
 		} `xml:"rotation"`
 		Up struct {
-			X string `xml:"x"`
-			Y string `xml:"y"`
-			Z string `xml:"z"`
+			X float32 `xml:"x"`
+			Y float32 `xml:"y"`
+			Z float32 `xml:"z"`
 		} `xml:"up"`
 		ScreenBounds struct {
-			X string `xml:"x"`
-			Y string `xml:"y"`
-			Z string `xml:"z"`
+			X float32 `xml:"x"`
+			Y float32 `xml:"y"`
+			Z float32 `xml:"z"`
 		} `xml:"screenbounds"`
 		Origin struct {
-			X string `xml:"x"`
-			Y string `xml:"y"`
-			Z string `xml:"z"`
+			X float32 `xml:"x"`
+			Y float32 `xml:"y"`
+			Z float32 `xml:"z"`
 		} `xml:"origin"`
 		RealScale struct {
-			X    string `xml:"x"`
-			Y    string `xml:"y"`
-			Z    string `xml:"z"`
-			Unit string `xml:"unit"`
+			X    float32 `xml:"x"`
+			Y    float32 `xml:"y"`
+			Z    float32 `xml:"z"`
+			Unit string  `xml:"unit"`
 		} `xml:"realscale"`
 		Audio      string `xml:"audio"`
 		Background string `xml:"background"`
@@ -69,18 +69,18 @@ type Header struct {
 }
 
 type Stroke struct {
-	IsDrawing string `xml:"isdrawing,attr"`
+	IsDrawing bool `xml:"isdrawing,attr"`
 	Pt        []struct {
-		X    string `xml:"x"`
-		Y    string `xml:"y"`
-		Z    string `xml:"z"`
-		T    string `xml:"t"`
-		Pres string `xml:"pres"`
-		Rot  string `xml:"rot"`
+		X    float32 `xml:"x"`
+		Y    float32 `xml:"y"`
+		Z    float32 `xml:"z"`
+		T    float32 `xml:"t"`
+		Pres float32 `xml:"pres"`
+		Rot  float32 `xml:"rot"`
 		Dir  struct {
-			X string `xml:"x"`
-			Y string `xml:"y"`
-			Z string `xml:"z"`
+			X float32 `xml:"x"`
+			Y float32 `xml:"y"`
+			Z float32 `xml:"z"`
 		} `xml:"dir"`
 	} `xml:"pt"`
 	Brush Brush `xml:"brush"`
@@ -90,26 +90,26 @@ type Stroke struct {
 }
 
 type Brush struct {
-	Mode              string `xml:"mode"`
-	UniqueStyleId     string `xml:"uniquestyleid"`
-	Spec              string `xml:"spec"`
-	Width             string `xml:"width"`
-	SpeedToWidthRatio string `xml:"speedtowidthratio"`
-	DripAmnt          string `xml:"dripamnt"`
-	DripSpeed         string `xml:"dripspeed"`
-	LayerAbsolute     string `xml:"layerabsolute"`
+	Mode              string  `xml:"mode"`
+	UniqueStyleId     string  `xml:"uniquestyleid"`
+	Spec              string  `xml:"spec"`
+	Width             int     `xml:"width"`
+	SpeedToWidthRatio float32 `xml:"speedtowidthratio"`
+	DripAmnt          float32 `xml:"dripamnt"`
+	DripSpeed         float32 `xml:"dripspeed"`
+	LayerAbsolute     int     `xml:"layerabsolute"`
 	Color             struct {
-		R string `xml:"r"`
-		G string `xml:"g"`
-		B string `xml:"b"`
-		A string `xml:"a"`
+		R uint8 `xml:"r"`
+		G uint8 `xml:"g"`
+		B uint8 `xml:"b"`
+		A uint8 `xml:"a"`
 	} `xml:"color"`
 	DripVecRelativeToUp struct {
-		X string `xml:"x"`
-		Y string `xml:"y"`
-		Z string `xml:"z"`
+		X float32 `xml:"x"`
+		Y float32 `xml:"y"`
+		Z float32 `xml:"z"`
 	} `xml:"dripvecrelativetoup"`
-	LayerRelative string `xml:"layerrelative"`
+	LayerRelative int `xml:"layerrelative"`
 }
 
 func (g *GML) Serialize() ([]byte, error) {
