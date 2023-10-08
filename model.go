@@ -1,6 +1,9 @@
 package gml
 
-import "encoding/xml"
+import (
+	"bytes"
+	"encoding/xml"
+)
 
 type GML struct {
 	XMLName xml.Name `xml:"gml"`
@@ -107,4 +110,17 @@ type Brush struct {
 		Z string `xml:"z"`
 	} `xml:"dripvecrelativetoup"`
 	LayerRelative string `xml:"layerrelative"`
+}
+
+func (g *GML) Serialize() ([]byte, error) {
+	return nil, nil
+}
+
+func Deserialize(raw []byte) (*GML, error) {
+	gml := &GML{}
+	err := xml.NewDecoder(bytes.NewReader(raw)).Decode(gml)
+	if err != nil {
+		return nil, err
+	}
+	return gml, nil
 }
