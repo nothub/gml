@@ -6,7 +6,7 @@ import (
 )
 
 func Test_deserialize(t *testing.T) {
-	raw, err := os.ReadFile("examples/data/spec_example.gml")
+	raw, err := os.ReadFile("examples/spec_example.gml")
 	if err != nil {
 		t.Fatal(err.Error())
 	}
